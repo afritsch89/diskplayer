@@ -115,6 +115,7 @@ func activePlayerId(ds *[]spotify.PlayerDevice) spotify.ID {
 
 // diskplayerId returns the Spotify ID for the Spotify client whose name is provided in the parameter list,
 // or a nil pointer if no matching device is found.
+//Semes to be a breaking point, passing a nil due to the d.name != n
 func diskplayerId(ds *[]spotify.PlayerDevice, n string) spotify.ID {
 	for _, d := range *ds {
 		if d.Name == n {
