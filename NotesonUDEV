@@ -1,0 +1,8 @@
+#Create a rule at /etc/udev/rules.d/100-floppy-change.rules with the following content:
+
+ACTION=="change", ATTRS{idVendor}=="03ee", ATTRS{idProduct}=="6901", ENV{DISK_MEDIA_CHANGE}=="1", RUN+="/bin/sh /home/pi/media_change.sh /dev/sda"
+
+
+#This rule waits for the CHANGE events on a specific device, and then executes a shell script media_change.sh with an argument of the device name (i.e. /dev/sda).
+#lsusb                   (idvendor):(idproduct)
+#Bus 001 Device 005: ID        03ee:6901       Mitsumi SmartDisk FDD
